@@ -4,6 +4,7 @@ date: 2026-04-27T00:00:00Z
 draft: false
 weight: 20
 name: "wp2static"
+category: "support"
 repo: "https://github.com/hugo-tools/wp2static"
 homepage: ""
 status: "active"

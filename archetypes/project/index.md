@@ -4,6 +4,11 @@ date: {{ .Date }}
 draft: false
 weight: 100
 name: "{{ .Name }}"
+# `core`     — the main projects: editor, plugin marketplace, future
+#              first-party SDKs.
+# `support`  — adjacent tools that help you get into / out of Hugo
+#              (migrations, scaffolders, converters).
+category: "core"
 repo: "https://github.com/hugo-tools/{{ .Name }}"
 status: "active"
 language: ""

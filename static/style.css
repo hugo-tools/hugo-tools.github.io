@@ -122,9 +122,21 @@ a:hover {
 .projects {
   padding: 4rem 0 5rem;
 }
+.projects .section-head {
+  margin: 2.5rem 0 1.25rem;
+}
+.projects .section-head:first-child {
+  margin-top: 0;
+}
 .projects h2 {
   font-size: 1.5rem;
-  margin: 0 0 1.5rem;
+  margin: 0 0 0.4rem;
+}
+.projects .section-blurb {
+  margin: 0;
+  color: var(--fg-muted);
+  font-size: 0.95rem;
+  max-width: 60ch;
 }
 .project-grid {
   display: grid;

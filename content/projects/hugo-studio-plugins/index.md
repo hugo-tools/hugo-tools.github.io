@@ -4,6 +4,7 @@ date: 2026-04-27T00:00:00Z
 draft: false
 weight: 30
 name: "hugo-studio-plugins"
+category: "core"
 repo: "https://github.com/hugo-tools/hugo-studio-plugins"
 homepage: "https://hugo-tools.github.io/hugo-studio-plugins/"
 status: "active"

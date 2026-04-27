@@ -4,6 +4,7 @@ date: 2026-04-27T00:00:00Z
 draft: false
 weight: 10
 name: "hugo-studio"
+category: "core"
 repo: "https://github.com/hugo-tools/hugo-studio"
 homepage: ""
 status: "active"

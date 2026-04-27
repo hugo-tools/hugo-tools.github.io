@@ -7,14 +7,51 @@
     </div>
   </section>
 
+  {{ $projects := where (where .Site.Pages "Section" "projects") "Kind" "page" }}
+  {{ $core := where $projects "Params.category" "core" }}
+  {{ $support := where $projects "Params.category" "support" }}
+  {{ $other := where $projects "Params.category" "" }}
+
   <section id="projects" class="projects">
     <div class="container">
-      <h2>Projects</h2>
-      <div class="project-grid">
-        {{ range where (where .Site.Pages "Section" "projects") "Kind" "page" }}
-          {{ partial "project-card.html" . }}
-        {{ end }}
-      </div>
+      {{ with $core }}
+        <header class="section-head">
+          <h2>Core</h2>
+          <p class="section-blurb">
+            The desktop editor and the marketplace it talks to —
+            the projects this org exists to build.
+          </p>
+        </header>
+        <div class="project-grid">
+          {{ range . }}{{ partial "project-card.html" . }}{{ end }}
+        </div>
+      {{ end }}
+
+      {{ with $support }}
+        <header class="section-head">
+          <h2>Support</h2>
+          <p class="section-blurb">
+            Adjacent tools that help you get into Hugo — migrators,
+            converters, scaffolders. Independent codebases, kept
+            here so they're easy to find from the editor's docs.
+          </p>
+        </header>
+        <div class="project-grid">
+          {{ range . }}{{ partial "project-card.html" . }}{{ end }}
+        </div>
+      {{ end }}
+
+      {{ with $other }}
+        {{/* Anything without a category lands here as a fallback so a
+             missing field never silently hides a project from the
+             landing. */}}
+        <header class="section-head">
+          <h2>Other</h2>
+        </header>
+        <div class="project-grid">
+          {{ range . }}{{ partial "project-card.html" . }}{{ end }}
+        </div>
+      {{ end }}
     </div>
   </section>
 {{ end }}
