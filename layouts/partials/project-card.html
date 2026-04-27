@@ -1,0 +1,37 @@
+<article class="project-card">
+  <header>
+    <h3>
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </h3>
+    <span class="badges">
+      <a href="{{ .Params.repo }}/releases/latest" aria-label="latest release">
+        <img
+          src="https://img.shields.io/github/v/release/{{ .Site.Params.org }}/{{ .Params.name }}?include_prereleases&display_name=tag&color=blue&label=release"
+          alt="Latest release"
+          loading="lazy"
+        />
+      </a>
+      <a href="{{ .Params.repo }}/blob/main/LICENSE" aria-label="license">
+        <img
+          src="https://img.shields.io/github/license/{{ .Site.Params.org }}/{{ .Params.name }}?color=green"
+          alt="License"
+          loading="lazy"
+        />
+      </a>
+      {{ with .Params.language }}
+        <span class="language">{{ . }}</span>
+      {{ end }}
+    </span>
+  </header>
+  <p class="description">{{ .Params.description }}</p>
+  {{ with .Params.install }}
+    <p class="install"><strong>Install</strong> · {{ . | markdownify }}</p>
+  {{ end }}
+  <footer>
+    <a href="{{ .Params.repo }}">Source</a>
+    {{ with .Params.homepage }}
+      · <a href="{{ . }}">Homepage</a>
+    {{ end }}
+    · <a href="{{ .Permalink }}">More →</a>
+  </footer>
+</article>

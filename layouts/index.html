@@ -1,0 +1,20 @@
+{{ define "main" }}
+  <section class="hero">
+    <div class="container">
+      <h1>{{ .Site.Title }}</h1>
+      <p class="tagline">{{ .Site.Params.tagline }}</p>
+      {{ with .Content }}<div class="prose">{{ . }}</div>{{ end }}
+    </div>
+  </section>
+
+  <section id="projects" class="projects">
+    <div class="container">
+      <h2>Projects</h2>
+      <div class="project-grid">
+        {{ range where (where .Site.Pages "Section" "projects") "Kind" "page" }}
+          {{ partial "project-card.html" . }}
+        {{ end }}
+      </div>
+    </div>
+  </section>
+{{ end }}

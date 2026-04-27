@@ -1,0 +1,13 @@
+{{ define "main" }}
+  <section class="projects">
+    <div class="container">
+      <h1>{{ .Title }}</h1>
+      {{ with .Content }}<div class="prose">{{ . }}</div>{{ end }}
+      <div class="project-grid">
+        {{ range .Pages }}
+          {{ partial "project-card.html" . }}
+        {{ end }}
+      </div>
+    </div>
+  </section>
+{{ end }}

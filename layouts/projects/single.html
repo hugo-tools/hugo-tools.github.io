@@ -1,0 +1,45 @@
+{{ define "main" }}
+  <article class="project-detail container">
+    <header>
+      <p class="back"><a href="{{ "/#projects" | absURL }}">← all projects</a></p>
+      <h1>{{ .Title }}</h1>
+      <p class="badges">
+        <a href="{{ .Params.repo }}/releases/latest">
+          <img
+            src="https://img.shields.io/github/v/release/{{ .Site.Params.org }}/{{ .Params.name }}?include_prereleases&display_name=tag&color=blue&label=release"
+            alt="Latest release"
+          />
+        </a>
+        <a href="{{ .Params.repo }}/blob/main/LICENSE">
+          <img
+            src="https://img.shields.io/github/license/{{ .Site.Params.org }}/{{ .Params.name }}?color=green"
+            alt="License"
+          />
+        </a>
+        {{ with .Params.language }}<span class="language">{{ . }}</span>{{ end }}
+      </p>
+      <p class="lede">{{ .Params.description }}</p>
+    </header>
+
+    <section class="prose">{{ .Content }}</section>
+
+    <section class="install">
+      <h2>Install</h2>
+      {{ with .Params.install }}
+        <p>{{ . | markdownify }}</p>
+      {{ else }}
+        <p>See the <a href="{{ .Params.repo }}">source repository</a> for installation instructions.</p>
+      {{ end }}
+    </section>
+
+    <section class="links">
+      <h2>Links</h2>
+      <ul>
+        <li><a href="{{ .Params.repo }}">Source code</a></li>
+        {{ with .Params.homepage }}<li><a href="{{ . }}">Homepage</a></li>{{ end }}
+        <li><a href="{{ .Params.repo }}/issues">Issues</a></li>
+        <li><a href="{{ .Params.repo }}/releases">Releases</a></li>
+      </ul>
+    </section>
+  </article>
+{{ end }}

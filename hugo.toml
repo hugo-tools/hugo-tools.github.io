@@ -1,0 +1,29 @@
+baseURL = "https://hugo-tools.github.io/"
+languageCode = "en-us"
+defaultContentLanguage = "en"
+title = "hugo-tools"
+
+# No taxonomies on this landing site; silences the default-template
+# warnings for the auto-generated `categories` / `tags`.
+disableKinds = ["taxonomy", "term"]
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[params]
+  tagline = "Tools that make authoring Hugo sites nicer."
+  description = "Open-source tools for Hugo authors, theme makers, and editors. Maintained as a community under the hugo-tools GitHub org."
+  org = "hugo-tools"
+  orgUrl = "https://github.com/hugo-tools"
+
+[menu]
+  [[menu.main]]
+    name = "Projects"
+    url = "/#projects"
+    weight = 10
+  [[menu.main]]
+    name = "GitHub"
+    url = "https://github.com/hugo-tools"
+    weight = 20
